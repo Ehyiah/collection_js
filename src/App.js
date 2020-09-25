@@ -1,32 +1,56 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Link, Switch, withRouter} from "react-router-dom";
-import Collections from './Component/Collection2';
+import Collections from './Pages/Collection2';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './global';
+import { theme } from './theme';
+import { Burger, Menu } from './Component/index';
+import { useOnClickOutside } from './hooks';
 
 function App() {
+  const [open, setOpen] = useState(false);
+  const node = useRef(); 
+  useOnClickOutside(node, () => setOpen(false));
+
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/collections">Collections</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <div>
+          <h1>Hello. This is burger menu tutorial</h1>
+          <img src="https://image.flaticon.com/icons/svg/2016/2016012.svg" alt="burger icon" />
+          <small>Icon made by Freepik from www.flaticon.com</small>
+        </div>
 
-      <Switch>
-        <Route path="/collections">
-          <Collections />
-        </Route>
+        <Router>
+          <div ref={node}>
+            <Burger open={open} setOpen={setOpen} />
+            <Menu open={open} setOpen={setOpen} />
+          </div>
+        {/* <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/collections">Collections</Link>
+              </li>
+            </ul>
+          </nav>
+        </div> */}
 
-      </Switch>
-    </Router>
+        <Switch>
+          <Route path="/collections">
+            <Collections />
+          </Route>
+
+        </Switch>
+      </Router>
+      </>
+    </ThemeProvider>
   );
 }
 
