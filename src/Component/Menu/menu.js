@@ -3,22 +3,26 @@ import { bool } from 'prop-types';
 import { StyledMenu } from './menu.styled';
 
 const Menu = ({ open }) => {
-  return (
-    <StyledMenu open={open}>
-      <a href="/">
-        <span role="img" aria-label="about us">&#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;</span>
-        About us
-      </a>
-      <a href="/">
-        <span role="img" aria-label="price">&#x1f4b8;</span>
-        Pricing
-        </a>
-      <a href="/">
-        <span role="img" aria-label="contact">&#x1f4e9;</span>
-        Contact
-        </a>
+    return (
+        <StyledMenu open={open}>
+            <a href="/">
+                <span role="img" aria-label="Accueil">&#x1F3E0;</span>
+                Accueil
+            </a>
+            <a href="/">
+                <span role="img" aria-label="Collections">&#x24B8;</span>
+                Collections
+            </a>
+            <a href="/">
+                <span role="img" aria-label="Mes amis">&#x1F46A;</span>
+                Mes amis
+            </a>
+            <a href="/">
+                <span role="img" aria-label="Mon compte">&#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;</span>
+                Mon compte
+            </a>
     </StyledMenu>
-  )
+    )
 }
 Menu.propTypes = {
   open: bool.isRequired,
