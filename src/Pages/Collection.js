@@ -15,13 +15,15 @@ class Collections extends Component {
         axios.get('http://collection.localhost/api/collection/all')
         .then(res => {
             const collections = res.data;
-            this.setState({collections})
+            this.setState({ collections: collections })
             console.log(res.data)
         })
     }
 
     render() {
-        const loading = this.state.loading;
+        const { } = this.state;
+        // const loading = this.state.loading;
+
         return(
             <div>
                 { this.state.collections.map(collection =>

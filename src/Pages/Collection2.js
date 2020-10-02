@@ -4,7 +4,7 @@ class Collections extends Component {
     render() {
         return(
           <>
-            <p>Click on an emoji to view the emoji short name.</p>
+            <p>Text from Collection2.js</p>
           </>
         )
       }

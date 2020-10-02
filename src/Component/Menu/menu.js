@@ -1,26 +1,16 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { bool } from 'prop-types';
 import { StyledMenu } from './menu.styled';
 
 const Menu = ({ open }) => {
     return (
         <StyledMenu open={open}>
-            <a href="/">
-                <span role="img" aria-label="Accueil">&#x1F3E0;</span>
-                Accueil
-            </a>
-            <a href="/">
-                <span role="img" aria-label="Collections">&#x24B8;</span>
-                Collections
-            </a>
-            <a href="/">
-                <span role="img" aria-label="Mes amis">&#x1F46A;</span>
-                Mes amis
-            </a>
-            <a href="/">
-                <span role="img" aria-label="Mon compte">&#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;</span>
-                Mon compte
-            </a>
+            <Link to="/">&#x1F3E0; Accueil</Link>
+            <Link to="/collections2">Mes Collections Test</Link>
+            <Link to="/collections">&#x24B8; Mes Collections</Link>
+            <Link to="/friends">&#x1F46A; Mes Amis</Link>
+            <Link to="/account">&#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f; Mon Compte</Link>
     </StyledMenu>
     )
 }
